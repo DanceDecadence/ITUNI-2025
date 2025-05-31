@@ -4,4 +4,4 @@
   become: true
   become_method: sudo
   roles: 
-    - role: lab2_nginx
+    - role: lab4_nginx

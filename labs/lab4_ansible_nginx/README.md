@@ -1,5 +1,5 @@
 # Lab #2
-Execution (from labs/lab2_ansible_nginx):
+Execution (from labs/lab4_ansible_nginx):
 
 ## Playbook to configure NOPASSWD rights on target hosts
 
