@@ -1,0 +1,7 @@
+---
+- name: Install and prepare nginx
+  hosts: nginx
+  become: true
+  become_method: sudo
+  roles: 
+    - role: lab2_nginx

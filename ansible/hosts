@@ -1,0 +1,17 @@
+[srv]
+srv-1   advertise_ip=192.168.56.201
+srv-2   advertise_ip=192.168.56.202
+srv-3   advertise_ip=192.168.56.203
+
+[srv:vars]
+ansible_user=decadence
+
+[control]
+situ-ubuntu   advertise_ip=192.168.56.200
+
+[control:vars]
+ansible_host=localhost
+ansible_connection=local
+
+[nginx]
+srv-1

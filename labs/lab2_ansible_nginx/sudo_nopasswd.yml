@@ -1,0 +1,12 @@
+---
+- name: Set NOPASSWD for sudo group
+  hosts: srv
+  become: true
+  become_method: sudo
+  tasks:
+
+  - name: Change sudoers file
+    ansible.builtin.lineinfile:
+      path: /etc/sudoers
+      state: present
+      line: "{{ ansible_user }} ALL=(ALL) NOPASSWD:ALL"

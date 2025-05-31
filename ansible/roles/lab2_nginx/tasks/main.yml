@@ -1,0 +1,14 @@
+---
+- name: Install nginx
+  package:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+- name: Ensure index exists with content
+  copy:
+    src: index.html
+    dest: /var/www/html/index.nginx-debian.html
+    owner: root
+    group: root
+    mode: '0666'
