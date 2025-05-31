@@ -1,0 +1,23 @@
+---
+- name: Ensure NMAP package installed
+  apt:
+    name: nmap
+    state: present
+
+- name: Scan targets with NMAP
+  command: |
+    nmap {{ item }}
+    -p 80,443
+    -oG -
+  loop: "{{ lookup('file', 'targets.txt').splitlines() }}"
+  register: _scan_results
+
+# - name: Print scan output
+#   debug:
+#     msg: "{{ item.stdout_lines }}"
+#   loop: "{{ _scan_results.results }}"
+
+- name: Print scan output
+  debug:
+    msg: "{{ _scan_results.results[item].stdout_lines }}"
+  loop: "{{ range(lookup('file', 'targets.txt').splitlines() | length) | list }}" 

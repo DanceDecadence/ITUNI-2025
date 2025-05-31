@@ -1,0 +1,7 @@
+---
+- name: LAB5 Scan Targets
+  hosts: scanners
+  become: true
+  become_method: sudo
+  roles: 
+    - role: lab5_scan
